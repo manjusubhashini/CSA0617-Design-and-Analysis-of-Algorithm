@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char *words[] = {"abc", "car", "ada", "racecar"};
+    int n = 4;
+    for (int i = 0; i < n; i++) {
+        int l = 0, r = strlen(words[i]) - 1;
+        while (l < r && words[i][l] == words[i][r])
+            l++, r--;
+            if (l >= r) {
+            printf("%s", words[i]);
+            return 0;
+        }
+    }
+    printf("");
+    return 0;
+}
