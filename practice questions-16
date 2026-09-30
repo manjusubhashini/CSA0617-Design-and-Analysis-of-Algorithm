@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    double a[101][101] = {0};
+    int poured = 2;
+    int row = 1, glass = 1;
+
+    a[0][0] = poured;
+
+    for(int i=0;i<100;i++) {
+        for(int j=0;j<=i;j++) {
+            if(a[i][j] > 1) {
+                double excess = (a[i][j]-1)/2;
+
+                a[i+1][j] += excess;
+                a[i+1][j+1] += excess;
+
+                a[i][j] = 1;
+            }
+        }
+    }
+
+    double ans = a[row][glass];
+
+    if(ans > 1) ans = 1;
+
+    printf("%.5f", ans);
+
+    return 0;
+}
